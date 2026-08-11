@@ -1,12 +1,12 @@
 using System;
-
+using SistemaVeterinaria.Utilidades;
 namespace SistemaVeterinaria.Modelos
 {
-    public abstract class Mascota
+public abstract class Mascota
     {
-        private string nombre;
-            private double peso;
-            private string sexo;
+private string nombre;
+        private double peso;
+        private string sexo;
         private int edad;
         private string dueño;
         private string codigo;
@@ -52,25 +52,18 @@ namespace SistemaVeterinaria.Modelos
             this.sexo = sexo;
             this.edad = edad;
             this.dueño = dueño;
-            this.codigo = GenerarCodigo();
+            this.codigo = GeneradorCodigo.Generar();
             this.enfermo = false; // cuando la registro asumo que esta sana
-        }
-        private string GenerarCodigo()
-        {
-            string letrasYnumeros = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            Random rnd = new Random();
-            string codigoNuevo = "";
-            for (int i = 0; i < 8; i++)
-            {
-                int pos = rnd.Next(letrasYnumeros.Length);
-                codigoNuevo = codigoNuevo + letrasYnumeros[pos];
-            }
-            return codigoNuevo;
         }
     public void CambiarEstado(bool nuevoEstado)
         {
             enfermo = nuevoEstado;
         }
+
+
+
+
+        
     public virtual double CalcularDosis(double dosisPorKg)
         {
             return peso * dosisPorKg;
