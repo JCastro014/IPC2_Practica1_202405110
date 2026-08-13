@@ -120,7 +120,7 @@ class Program
                         Tortuga tortuga = new Tortuga(nombre, peso, sexo, edad, dueño, esAcuatica);
                         veterinaria.AgregarMascota(tortuga);
                         Console.WriteLine("Tortuga registrada con exito. Su codigo es: " + tortuga.Codigo);
-
+                        }
             }
 
 
@@ -198,7 +198,7 @@ class Program
             {
                 activo = false;
             }
-        }
+        
     }
     }
 }
